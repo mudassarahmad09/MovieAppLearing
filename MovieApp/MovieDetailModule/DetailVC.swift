@@ -7,12 +7,15 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class DetailVC: UIViewController {
 
+    let movieDetailView = MoiveDetailUI()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.view.backgroundColor = .white
+        view.backgroundColor = .white
+        view.addSubview(movieDetailView)
     }
 
 }
