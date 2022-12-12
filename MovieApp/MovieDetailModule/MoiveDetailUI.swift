@@ -30,8 +30,11 @@ class MoiveDetailUI: UIView {
     func layout(in viewController: UIViewController) {
         viewController.view.backgroundColor = .black
         viewController.view.addSubview(posterImageView)
-        
+        viewController.view.addSubview(titleLabel)
+        viewController.view.addSubview(synopsisTextView)
         setupPosterImageView()
+        setupTitleLabel()
+        setupSynopsisTextView()
     }
     
 }
@@ -39,8 +42,7 @@ class MoiveDetailUI: UIView {
 // MARK: - View setup
 
 extension MoiveDetailUI {
-    fileprivate func setupPosterImageView() {
-        
+    private func setupPosterImageView() {
         posterImageView.snp.makeConstraints { make in
             make.height.equalToSuperview().multipliedBy(0.45)
             make.leading.trailing.equalToSuperview()
@@ -48,23 +50,17 @@ extension MoiveDetailUI {
         }
     }
     
-    fileprivate func setupTitleLabel() {
-        addSubview(titleLabel)
-        
+    private func setupTitleLabel() {
         titleLabel.snp.makeConstraints { make in
             make.left.equalTo(posterImageView.snp.right).offset(16)
-            make.right.equalToSuperview().inset(16)
-            make.top.equalTo(posterImageView)
+            make.leading.equalToSuperview()
         }
     }
     
-    fileprivate func setupSynopsisTextView() {
-        addSubview(synopsisTextView)
-        
+    private func setupSynopsisTextView() {
         synopsisTextView.snp.makeConstraints { make in
-            make.left.equalTo(posterImageView)
-            make.right.bottom.equalToSuperview().inset(16)
-            make.top.equalTo(titleLabel.snp.bottom).offset(8)
+            make.left.equalTo(titleLabel.snp.right).offset(16)
+            make.leading.equalToSuperview()
         }
     }
 }
