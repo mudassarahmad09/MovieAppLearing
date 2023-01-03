@@ -18,12 +18,16 @@ class MoiveDetailUI: UIView {
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.text = "Jon Snow"
+        label.backgroundColor = .white
+        label.textColor = .red
         return label
     }()
     
     lazy var synopsisTextView: UITextView = {
         let textView = UITextView()
         textView.text = "Jon Snow is working on new film. It will be big one"
+        textView.backgroundColor = .white
+        textView.textColor = .red
         return textView
     }()
     
@@ -40,7 +44,6 @@ class MoiveDetailUI: UIView {
 }
 
 // MARK: - View setup
-
 extension MoiveDetailUI {
     private func setupPosterImageView() {
         posterImageView.snp.makeConstraints { make in
@@ -52,15 +55,16 @@ extension MoiveDetailUI {
     
     private func setupTitleLabel() {
         titleLabel.snp.makeConstraints { make in
-            make.left.equalTo(posterImageView.snp.right).offset(16)
-            make.leading.equalToSuperview()
+            make.top.equalTo(posterImageView.snp.bottom).offset(10)
+            make.leading.equalToSuperview().inset(15)
         }
     }
     
     private func setupSynopsisTextView() {
         synopsisTextView.snp.makeConstraints { make in
-            make.left.equalTo(titleLabel.snp.right).offset(16)
-            make.leading.equalToSuperview()
+            make.top.equalTo(titleLabel.snp.bottom).offset(10)
+            make.leading.trailing.equalToSuperview()
+            make.height.greaterThanOrEqualTo(44)
         }
     }
 }
